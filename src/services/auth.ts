@@ -1,12 +1,92 @@
 import { supabase } from "../lib/supabase";
 
-export type UserRole = "student" | "teacher" | "admin";
 
-export interface UserProfile {
-  id: string;
-  full_name: string;
-  email: string;
-  role: UserRole;
-  disability_type?: string | null;
-  avatar_url?: string | null;
+// Register user
+
+export async function registerUser(
+  email: string,
+  password: string,
+  full_name: string,
+  role: string = "student"
+) {
+
+  const { data, error } =
+    await supabase.auth.signUp({
+
+      email,
+
+      password,
+
+      options: {
+
+        data: {
+
+          full_name,
+
+          role,
+
+        },
+
+      },
+
+    });
+
+
+  if (error) {
+
+    throw error;
+
+  }
+
+
+  return data;
+
+}
+
+
+
+// Login user
+
+export async function loginUser(
+  email: string,
+  password: string
+) {
+
+  const { data, error } =
+    await supabase.auth.signInWithPassword({
+
+      email,
+
+      password,
+
+    });
+
+
+  if(error){
+
+    throw error;
+
+  }
+
+
+  return data;
+
+}
+
+
+
+// Logout user
+
+export async function logoutUser(){
+
+  const { error } =
+    await supabase.auth.signOut();
+
+
+  if(error){
+
+    throw error;
+
+  }
+
 }

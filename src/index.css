@@ -1,11 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
+
 * {
-  margin: 0;
-  padding: 0;
+  margin: 100;
+  padding: 100;
   box-sizing: border-box;
 }
 
+
+html {
+  scroll-behavior: smooth;
+}
+
+
 body {
-  font-family: Inter, Arial, sans-serif;
+  font-family: "Inter", sans-serif;
+  background: #f8fafc;
+  color: #0f172a;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+#root {
+  min-height: 100vh;
+}
+
+
+button,
+input {
+  font-family: inherit;
+}
+
+
+::selection {
+  background: #2563eb;
+  color: white;
+
+  
+}
+/* High Contrast Mode */
+
+.high-contrast {
+
+  background: black;
+
+}
+
+
+
+.high-contrast body {
+
+  background: black;
+
+}
+
+
+
+/* Text */
+
+.high-contrast h1,
+.high-contrast h2,
+.high-contrast h3,
+.high-contrast p,
+.high-contrast span,
+.high-contrast label {
+
+  color: white !important;
+
+}
+
+
+
+/* Cards */
+
+.high-contrast .bg-white {
+
+  background-color: black !important;
+
+  border-color: white !important;
+
+}
+
+
+
+/* Buttons */
+
+.high-contrast button {
+
+  background-color: black !important;
+
+  color: white !important;
+
+  border: 1px solid white;
+
+}
+
+
+
+/* Inputs */
+
+.high-contrast input,
+.high-contrast textarea,
+.high-contrast select {
+
+  background-color: black !important;
+
+  color: white !important;
+
+  border-color: white !important;
+
 }
